@@ -1,13 +1,15 @@
-<h1>User info</h1>
-<div>
-  <% if user.image.attached? %>
-    <%= image_tag @user.image, size: "100x100" %><!--image_tag 'ファイル名', オプション-->
-  <% else %>
-    <%= image_tag 'no_image' size: "100x100" %>
-  <% end %>
-</div>
+<!--ここから右側部分-->
+<h2>Books</h2>
 
+<!--ここから左側部分-->
+<h2>User info</h2>
+<table>
+  <tr><%= image_tag @user.get_profile_image(100, 100) %></tr>
+  <tr><th><strong>name</strong></th><th><%= @user.name %></th></tr>
+  <tr><th><strong>introduction</strong></th><th><%= @user.introduction %></th></tr>
+</table>
 
+<%= link_to "edit user", edit_user_path(@user.id) %>
 
 <h1>New book</h1>
 <%= form_with model: @book do |f| %>
@@ -20,3 +22,5 @@
   <%= f.submit 'Create Book' %>
   </div>
 <% end %>
+
+<!--ここまでが左側部分-->
