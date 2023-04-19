@@ -6,13 +6,17 @@
 <!--ここから右側部分-->
 <h2>Books</h2>
 <table>
-  <tr><th>Title</th><th>Opinion</th></tr>
-  <% @users.each do |user| %>
-  <tr>
-    <td><%= image_tag user.get_profile_image(100, 100) %></td>
+  <thead>
+    <tr><th>Title</th><th>Opinion</th></tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
     <% @books.each do |book| %>
-    <td><%= book.title %></td><td><%= book.body %></td>
+    <tr>
+      <td><%= image_tag user.get_profile_image(100, 100) %></td>
+      <td><%= book.title %></td><td><%= book.body %></td>
+    </tr>
     <% end %>
-  </tr>
-  <% end %>
+    <% end %>
+  </tbody>
 </table>
