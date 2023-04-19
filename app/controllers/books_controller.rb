@@ -7,16 +7,14 @@ class BooksController < ApplicationController
   end
 
   def index
-    @book = Book.new
-    @user = current_user
-    @users = User.all
-    @books = Book.all
+    @book = Book.new #部分テンプレート用
+    @user = current_user #部分テンプレート用
+    @books = Book.all #一覧を表示させるためのもの
   end
 
   def show
-    @book = Book.new
-    @user = current_user
-    @book = Book.find(params[:id])
+    @new = Book.new  #部分テンプレート用
+    @book = Book.find(params[:id])#
   end
 
   def edit

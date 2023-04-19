@@ -1,6 +1,21 @@
+<!--ここから左側部分-->
+<%= render 'book', user: @book.user, book: @n %>
+<!--ここまで左側部分-->
+
+<!--ここから右側部分-->
 <h1>Book detail</h1>
-<%= render 'book', user: @user, book: @book %>
-
-<%= @book.title %>
-
-<%= @book.body %>
+<table>
+  <tr>
+    <td>
+      <%= link_to user_path(@book.user) do %>
+        <%= image_tag @book.user.get_profile_image(100, 100) %>
+      <% end %>
+    </td>
+    <td>
+      <%= @book.title %>
+    </td>
+    <td>
+      <%= @book.body %>
+    </td>
+  </tr>
+</table>
