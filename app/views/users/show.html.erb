@@ -1,4 +1,8 @@
-<h1>Home</h1>
+<div>
+  <%= flash[:notice] %>
+  <%= flash[:sign_up] %>
+  <%= flash[:update] %>
+</div>
 <%= render 'books/book', user: @user, book: @book %>
 
 <h1>Books</h1>
