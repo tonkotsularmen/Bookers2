@@ -25,10 +25,14 @@
       <%= @book.body %>
     </td>
     <td>
-      <%= link_to "Edit", edit_book_path(@book.id) %>
+      <% if @book.user == current_user %>
+        <%= link_to "Edit", edit_book_path(@book.id) %>
+      <% end %>
     </td>
     <td>
-      <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
+      <% if @book.user == current_user %>
+        <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
+      <% end %>
     </td><!-- destroyと一緒にかくbook_path(@book.id)の意味がよくわからない-->
   </tr>
 </table>
