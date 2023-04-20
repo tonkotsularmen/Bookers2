@@ -1,3 +1,21 @@
-<h1>ユーザー情報編集</h1>
-<h1>User info</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<body>
+  <h1>User info</h1>
+  <%= form_with model: @user do |f| %>
+    <div>
+      <label for="inputName">Name</label><!--labelはフォームの項目名と構成部品を関連づける-->
+      <p><%= f.text_field :name, id:"inputName" %></p>
+      <!--ブラウザでNameをクリックすることを入力フォームをクリックすることと同じ意味にする-->
+      <!--autofocus属性はデフォルトでその要素にフォーカスが当たるようにする-->
+    </div>
+    <h6>Image</h6>
+    <%= f.file_field :profile_image, accept: "image/*" %>
+    <div>
+      <label for="inputIntroduction">Introduction</label>
+      <p><%= f.text_area :introduction, id:"inputIntroduction" %></p>
+      <!--placeholderは入力欄に入力例などの仮のテキストを入れる-->
+    </div>
+    <div>
+      <%= f.submit "Update User" %>
+    </div>
+  <% end %>
+</body>
