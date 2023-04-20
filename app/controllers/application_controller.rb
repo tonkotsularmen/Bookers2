@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!, except: [:top]
+  before_action :authenticate_user!, except: [:top, :about]
   #全てのアクションの前にユーザーがログインしているか確認するよ
   #ただし、topアクションは除くよ
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
-    
+
   protected
 
   def configure_permitted_parameters
