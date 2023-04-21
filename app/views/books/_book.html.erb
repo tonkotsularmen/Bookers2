@@ -1,20 +1,25 @@
-<h2>User info</h2>
-<table>
-  <tr><%= image_tag user.get_profile_image(100, 100) %></tr>
-  <tr><th><strong>name</strong></th><th><%= user.name %></th></tr>
-  <tr><th><strong>introduction</strong></th><th><%= user.introduction %></th></tr>
-</table>
+        <h2>User info</h2>
+        <table>
+          <tr><%= image_tag user.get_profile_image(100, 100) %></tr>
+          <tr><th><strong>name</strong></th><th><%= user.name %></th></tr>
+          <tr><th><strong>introduction</strong></th><th><%= user.introduction %></th></tr>
+        </table>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><!--buttonタグ-->
+            <%= link_to edit_user_path(user.id) do %>
+              <i class="fas fa-user-cog">
+          </i>
+          <% end %>
+        </ul>
 
-<%= link_to "edit user", edit_user_path(user.id) %>
+        <h1>New book</h1>
+        <%= form_with model: book do |f| %>
+          <h4>Title</h4>
+          <%= f.text_field :title %>
 
-<h1>New book</h1>
-<%= form_with model: book do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-
-  <h4>Opinion</h4>
-  <%= f.text_area :body %>
-  <div>
-  <%= f.submit 'Create Book' %>
-  </div>
-<% end %>
+        <h4>Opinion</h4>
+          <%= f.text_area :body %>
+          <div>
+          <%= f.submit 'Create Book' %>
+          </div>
+        <% end %>
