@@ -1,5 +1,8 @@
-<body>
-  <h1>User info</h1>
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>User info</h2>
   <% if @user.errors.any? %>
     <%= @user.errors.count %> errors prohibited this obj from being saved:
   <ul>
@@ -9,21 +12,25 @@
   </ul>
   <% end %>
   <%= form_with model: @user do |f| %>
-    <div>
-      <label for="inputName">Name</label><!--labelはフォームの項目名と構成部品を関連づける-->
-      <p><%= f.text_field :name, id:"inputName" %></p>
+    <div class="form-group">
+      <label for="user_name">Name</label><!--labelはフォームの項目名と構成部品を関連づける-->
+      <%= f.text_field :name, class:"form-control name", id:"user_name" %>
       <!--ブラウザでNameをクリックすることを入力フォームをクリックすることと同じ意味にする-->
       <!--autofocus属性はデフォルトでその要素にフォーカスが当たるようにする-->
     </div>
-    <h6>Image</h6>
-    <%= f.file_field :profile_image, accept: "image/*" %>
+    <div class="form-group">
+      <label for="user_image">Image</label>
+      <%= f.file_field :profile_image, class:"form-control-file user_image", accept: "image/*" %>
+    </div>
     <div>
-      <label for="inputIntroduction">Introduction</label>
-      <p><%= f.text_area :introduction, id:"inputIntroduction" %></p>
+      <label for="user_introduction">Introduction</label>
+      <p><%= f.text_area :introduction, class:"form-control introduction", id:"user_introduction" %></p>
       <!--placeholderは入力欄に入力例などの仮のテキストを入れる-->
     </div>
-    <div>
-      <%= f.submit "Update User" %>
+    <div class="form-group">
+      <%= f.submit "Update User", class:"btn btn-secondary" %>
     </div>
   <% end %>
-</body>
+    </div>
+  </div>
+</div>
