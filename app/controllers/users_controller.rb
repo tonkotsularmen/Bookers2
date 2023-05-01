@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def show
     @book = Book.new
     @user = User.find(params[:id])
-    @books = @user.books#このbooksはモデル名？
+    @books = @user.books#これは
   end
 
   def index
